@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Database, Globe, Zap, Download, Briefcase, Calendar, ExternalLink, Github, ArrowRight, Star } from 'lucide-react';
+
 import { ContactSection } from '@/components/sections/ContactSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { TechnicalSkillsSection } from '@/components/sections/TechnicalSkillsSection';
@@ -80,6 +81,9 @@ const HomePage: React.FC = () => {
         <title>Prince Nyamadi - Fullstack Developer | Building Digital Experiences</title>
         <meta name="description" content="Explore the digital possibilities. I craft exceptional mobile and web applications with modern technologies, seamless user experiences, and scalable architectures." />
       </Helmet>
+
+      {/* Firebase Test Component - Remove this after testing */}
+      {/* <FirebaseTest /> */}
 
       <div className="relative">
         {/* Stars Background */}

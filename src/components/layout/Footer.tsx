@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, Mail, Code } from 'lucide-react';
-import { APP_CONFIG, SOCIAL_LINKS } from '@/constants';
 
 const FOOTER_NAVIGATION_ITEMS = [
   { name: 'About', href: '#about' },
@@ -14,7 +13,6 @@ const FOOTER_NAVIGATION_ITEMS = [
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
 
   const handleNavigation = (href: string) => {
     if (href.startsWith('#')) {

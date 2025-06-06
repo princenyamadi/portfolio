@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-900 via-purple-900 to-gray-900">
       <Header />
       <main className="flex-1">
         {children}

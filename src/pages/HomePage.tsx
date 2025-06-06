@@ -1,235 +1,591 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, ExternalLink } from 'lucide-react';
-import { SEO_CONFIG } from '@/constants';
+import { Code, Database, Globe, Zap, Download, Briefcase, Calendar, ExternalLink, Github, ArrowRight, Star } from 'lucide-react';
+import { ContactSection } from '@/components/sections/ContactSection';
+import { AboutSection } from '@/components/sections/AboutSection';
+import { TechnicalSkillsSection } from '@/components/sections/TechnicalSkillsSection';
 
 const HomePage: React.FC = () => {
+  const featuredProjects = [
+    {
+      title: "EcoTracker",
+      description: "A comprehensive sustainability platform helping companies track and reduce their carbon footprint with real-time analytics and AI-powered insights.",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "D3.js"],
+      github: "https://github.com/alexchen/ecotracker",
+      live: "https://ecotracker-demo.com",
+      featured: true
+    },
+    {
+      title: "DevFlow",
+      description: "A collaborative development workspace that streamlines team workflows with integrated code review, task management, and deployment pipelines.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
+      technologies: ["Vue.js", "Python", "Redis", "Docker", "WebSocket"],
+      github: "https://github.com/alexchen/devflow",
+      live: "https://devflow-app.com",
+      featured: true
+    },
+    {
+      title: "FinanceAI",
+      description: "Personal finance management app with AI-powered budget recommendations and investment insights for smarter financial decisions.",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=300&fit=crop",
+      technologies: ["Next.js", "TensorFlow", "MongoDB", "Stripe", "Chart.js"],
+      github: "https://github.com/alexchen/financeai",
+      live: "https://financeai-demo.com",
+      featured: true
+    }
+  ];
+
+  const workExperience = [
+    {
+      title: "Senior Full Stack Developer",
+      company: "TechVision Labs",
+      period: "2022 - Present",
+      description: "Lead development of microservices architecture serving 1M+ users. Built real-time analytics dashboard using React, Node.js, and AWS.",
+      technologies: ["React", "Node.js", "AWS", "PostgreSQL", "Redis"]
+    },
+    {
+      title: "Full Stack Developer",
+      company: "StartupFlow",
+      period: "2020 - 2022",
+      description: "Developed and maintained e-commerce platform with payment integration. Improved page load times by 40% through optimization.",
+      technologies: ["Vue.js", "Python", "Django", "MongoDB", "Docker"]
+    },
+    {
+      title: "Frontend Developer",
+      company: "DigitalCraft Agency",
+      period: "2019 - 2020",
+      description: "Created responsive web applications for diverse clients. Collaborated with design team to implement pixel-perfect UI components.",
+      technologies: ["React", "TypeScript", "Sass", "Jest", "Figma"]
+    },
+    {
+      title: "Junior Developer",
+      company: "CodeStart Solutions",
+      period: "2018 - 2019",
+      description: "Built interactive web features and learned industry best practices. Contributed to open-source projects and team code reviews.",
+      technologies: ["JavaScript", "HTML/CSS", "Git", "Agile", "Testing"]
+    }
+  ];
+
   return (
     <>
       <Helmet>
-        <title>{SEO_CONFIG.DEFAULT_TITLE}</title>
-        <meta name="description" content={SEO_CONFIG.DEFAULT_DESCRIPTION} />
+        <title>Alex Chen - Fullstack Developer | Building Digital Experiences</title>
+        <meta name="description" content="Explore the digital possibilities. I craft exceptional web applications with modern technologies, seamless user experiences, and scalable architectures." />
       </Helmet>
 
-      <div className="min-h-screen">
-        {/* Hero Section */}  
-        <section className="section bg-gradient-mobile bg-textured-circuit relative overflow-hidden">
-          <div className="absolute inset-0 bg-textured-hexagon opacity-30"></div>
-          <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <motion.div 
-                  className="flex justify-center mb-6"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <div className="relative">
-                    <motion.div 
-                      className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 backdrop-blur-sm border border-white/30 shadow-2xl"
-                      animate={{ 
-                        y: [0, -10, 0],
-                        rotate: [0, 5, -5, 0]
-                      }}
-                      transition={{ 
-                        y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                        rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                      }}
-                      whileHover={{ scale: 1.1, rotate: 15 }}
-                    >
-                      <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9H21ZM19 21H5V3H13V9H19V21Z"/>
-                      </svg>
-                    </motion.div>
-                    <motion.div 
-                      className="absolute -top-2 -right-2 w-6 h-6 bg-neon-400 rounded-full"
-                      animate={{ 
-                        scale: [1, 1.2, 1],
-                        opacity: [0.8, 1, 0.8]
-                      }}
-                      transition={{ 
-                        duration: 2, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
-                      }}
-                    />
-                  </div>
-                </motion.div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                  Mobile App{' '}
-                  <span className="text-gradient-neon">Developer</span>
-                </h1>
-                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                  Crafting innovative iOS & Android applications with cutting-edge technology. 
-                  Transforming ideas into powerful mobile experiences that users love.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.button 
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn bg-white text-gray-900 hover:bg-gray-100 btn-lg shadow-lg transition-all duration-300"
-                  >
-                    View My Apps
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </motion.div>
-                  </motion.button>
-                  <motion.button 
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn border-white/30 bg-white/10 hover:bg-white/20 btn-lg backdrop-blur-sm transition-all duration-300"
-                  >
-                    <Github className="w-5 h-5 mr-2" />
-                    GitHub Portfolio
-                  </motion.button>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Quick Stats */}
-        <section className="section bg-gray-900 bg-textured-dots relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-electric-900/50 to-cyber-900/50"></div>
-          <div className="container relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-electric-400 mb-2">50+</div>
-                <div className="text-gray-300">Mobile Apps</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-cyber-400 mb-2">2M+</div>
-                <div className="text-gray-300">Downloads</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-neon-400 mb-2">4.8★</div>
-                <div className="text-gray-300">Average Rating</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-primary-400 mb-2">5+</div>
-                <div className="text-gray-300">Years Experience</div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Apps Preview */}
-        <section className="section bg-gray-100 bg-textured-grid relative">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Featured <span className="text-gradient-mobile">Mobile Apps</span>
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover my latest mobile applications built with React Native, Flutter, 
-                and native iOS/Android development. Each app solves real-world problems.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Mobile App Cards */}
-              {[
-                { name: "FitTracker Pro", tech: ["React Native", "Firebase"], gradient: "from-electric-400 to-cyber-400", icon: "💪" },
-                { name: "CryptoWallet", tech: ["Flutter", "Blockchain"], gradient: "from-neon-400 to-electric-400", icon: "💰" },
-                { name: "FoodieExplorer", tech: ["Swift", "Core Data"], gradient: "from-cyber-400 to-primary-400", icon: "🍕" }
-              ].map((app, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="card card-hover bg-white/80 backdrop-blur-sm border-gray-200/50"
-                >
-                  <div className={`aspect-video bg-gradient-to-br ${app.gradient} rounded-t-lg flex items-center justify-center text-6xl`}>
-                    {app.icon}
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {app.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      A powerful mobile app delivering exceptional user experience with modern design patterns.
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex space-x-2">
-                        {app.tech.map((tech, idx) => (
-                          <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex space-x-2">
-                        <button 
-                          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                          aria-label="View project on GitHub"
-                        >
-                          <Github className="w-4 h-4" />
-                        </button>
-                        <button 
-                          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                          aria-label="View live project"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="section bg-primary-600">
-          <div className="container text-center">
+      <div className="relative">
+        {/* Stars Background */}
+        <div className="absolute inset-0">
+          {[...Array(50)].map((_, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Ready to Work Together?
-              </h2>
-              <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
-                I'm always interested in new opportunities and exciting projects.
-                Let's discuss how we can bring your ideas to life.
-              </p>
-              <button className="btn bg-white text-primary-600 hover:bg-gray-100 btn-lg">
-                Get In Touch
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-            </motion.div>
-          </div>
-        </section>
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                opacity: [0.3, 1, 0.3],
+                scale: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Shooting Star */}
+        <motion.div
+          className="absolute w-1 h-20 bg-gradient-to-b from-white to-transparent opacity-80"
+          style={{ left: '60%', top: '15%', transform: 'rotate(45deg)' }}
+          animate={{
+            x: [0, 200],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 8,
+          }}
+        />
+
+        {/* Crescent Moon */}
+        <div className="absolute right-20 top-16">
+          <motion.div
+            className="w-16 h-16 bg-yellow-200 rounded-full relative"
+            animate={{
+              rotate: [0, 10, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+            }}
+          >
+            <div className="absolute top-1 right-1 w-12 h-12 bg-gradient-to-b from-indigo-900 via-purple-900 to-gray-900 rounded-full"></div>
+          </motion.div>
+        </div>
+
+        {/* Main Content */}
+        <div className="relative z-10 min-h-screen flex flex-col">
+          {/* Hero Section with Telescope */}
+          <section className="flex-1 flex items-center">
+            <div className="container mx-auto px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
+                    Explore the digital universe.
+                  </h1>
+                  <p className="text-xl lg:text-2xl text-white/90 mb-8 font-light">
+                    Let's build something extraordinary together
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors duration-300"
+                    >
+                      View My Work
+                    </motion.button>
+                    <motion.a
+                      href="/resume.pdf"
+                      download="Alex_Chen_Resume.pdf"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center justify-center border border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 backdrop-blur-sm"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Resume
+                    </motion.a>
+                  </div>
+                </motion.div>
+
+                {/* Developer with Telescope Silhouette */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="relative"
+                >
+                  <svg viewBox="0 0 400 300" className="w-full h-auto">
+                    {/* Ground/Hill */}
+                    <path
+                      d="M0 250 Q100 230 200 240 T400 250 L400 300 L0 300 Z"
+                      fill="rgba(30, 41, 59, 0.8)"
+                    />
+                    
+                    {/* Grass/Vegetation */}
+                    <g fill="rgba(15, 23, 42, 0.6)">
+                      <path d="M20 250 L25 240 L30 250 Z" />
+                      <path d="M40 245 L45 235 L50 245 Z" />
+                      <path d="M320 248 L325 238 L330 248 Z" />
+                      <path d="M350 252 L355 242 L360 252 Z" />
+                      <path d="M380 250 L385 240 L390 250 Z" />
+                    </g>
+
+                    {/* Developer with Laptop */}
+                    <g fill="rgba(59, 130, 246, 0.8)">
+                      {/* Person Body */}
+                      <ellipse cx="180" cy="240" rx="12" ry="20" />
+                      {/* Person Head */}
+                      <circle cx="180" cy="215" r="8" />
+                      {/* Arms working on laptop */}
+                      <path d="M175 225 L160 235" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                      <path d="M185 225 L200 235" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                      {/* Legs */}
+                      <path d="M175 255 L170 270" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                      <path d="M185 255 L190 270" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                    </g>
+
+                    {/* Laptop */}
+                    <g fill="rgba(59, 130, 246, 0.8)">
+                      {/* Laptop Base */}
+                      <rect x="155" y="235" width="30" height="3" rx="1" />
+                      {/* Laptop Screen */}
+                      <rect x="160" y="220" width="20" height="15" rx="1" />
+                      {/* Screen glow */}
+                      <rect x="162" y="222" width="16" height="11" fill="rgba(147, 197, 253, 0.6)" rx="1" />
+                    </g>
+
+                    {/* Code symbols floating */}
+                    <g fill="rgba(147, 197, 253, 0.4)" fontSize="8">
+                      <text x="140" y="180">&lt;/&gt;</text>
+                      <text x="220" y="190">{ }</text>
+                      <text x="250" y="170">λ</text>
+                    </g>
+
+                    {/* Trees representing tech stack */}
+                    <g fill="rgba(15, 23, 42, 0.4)">
+                      <rect x="80" y="220" width="3" height="30" />
+                      <ellipse cx="81" cy="215" rx="8" ry="12" />
+                      <rect x="300" y="225" width="3" height="25" />
+                      <ellipse cx="301" cy="220" rx="6" ry="10" />
+                    </g>
+                  </svg>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Development Skills Section */}
+          <section className="py-20">
+            <div className="container mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-3xl font-light text-blue-300 mb-12">Full Stack Expertise</h2>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                {/* Frontend Excellence */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Globe className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-4">Frontend Mastery</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    React, TypeScript, Next.js, Vue, Angular. Creating responsive, accessible, and performant user interfaces with modern frameworks and best practices.
+                  </p>
+                </motion.div>
+
+                {/* Backend Expertise */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Database className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-4">Backend Architecture</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Node.js, Python, PostgreSQL, MongoDB, Redis. Building scalable APIs, microservices, and robust backend systems that power exceptional applications.
+                  </p>
+                </motion.div>
+
+                {/* DevOps & Cloud */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Zap className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-4">DevOps & Deployment</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    AWS, Docker, Kubernetes, CI/CD. Automating deployments, optimizing performance, and ensuring reliable, scalable infrastructure for modern applications.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Projects Section */}
+          <section className="py-20">
+            <div className="container mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-16"
+              >
+                <div className="flex items-center justify-center mb-4">
+                  <Star className="w-8 h-8 text-blue-400 mr-3" />
+                  <h2 className="text-3xl font-light text-blue-300">Featured Projects</h2>
+                </div>
+                <p className="text-white/70 max-w-2xl mx-auto">
+                  Showcasing innovative solutions that solve real-world problems with cutting-edge technology
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {featuredProjects.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    className="group"
+                  >
+                    <motion.div
+                      whileHover={{ y: -10, scale: 1.02 }}
+                      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300"
+                    >
+                      {/* Project Image */}
+                      <div className="relative h-48 overflow-hidden">
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                      </div>
+
+                      {/* Project Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
+                        <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                          {project.description}
+                        </p>
+
+                        {/* Technologies */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.technologies.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full border border-blue-400/20"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Project Links */}
+                        <div className="flex space-x-4">
+                          <motion.a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="flex items-center text-white/70 hover:text-white transition-colors duration-300"
+                          >
+                            <Github className="w-4 h-4 mr-1" />
+                            <span className="text-sm">Code</span>
+                          </motion.a>
+                          <motion.a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="flex items-center text-white/70 hover:text-white transition-colors duration-300"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-1" />
+                            <span className="text-sm">Live Demo</span>
+                          </motion.a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* View All Projects Link */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-center"
+              >
+                <motion.a
+                  href="/projects"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center text-blue-300 hover:text-white border border-blue-400/30 hover:border-white/50 bg-blue-600/10 hover:bg-white/10 px-8 py-3 rounded-full font-medium transition-all duration-300 backdrop-blur-sm"
+                >
+                  View All Projects
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </motion.a>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Work Experience Timeline Section */}
+          <section className="py-20">
+            <div className="container mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-16"
+              >
+                <div className="flex items-center justify-center mb-4">
+                  <Briefcase className="w-8 h-8 text-blue-400 mr-3" />
+                  <h2 className="text-3xl font-light text-blue-300">Professional Journey</h2>
+                </div>
+                <p className="text-white/70 max-w-2xl mx-auto">
+                  A timeline of my career growth, building expertise across the full stack
+                </p>
+              </motion.div>
+
+              <div className="max-w-4xl mx-auto">
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-transparent"></div>
+
+                  {workExperience.map((job, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.2 }}
+                      className={`relative flex items-center mb-12 ${
+                        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                      } flex-col md:flex-row`}
+                    >
+                      {/* Timeline Node */}
+                      <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-gray-900 z-10">
+                        <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-30"></div>
+                      </div>
+
+                      {/* Content Card */}
+                      <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                        index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                      }`}>
+                        <motion.div
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300"
+                        >
+                          <div className="flex items-center mb-3">
+                            <Calendar className="w-4 h-4 text-blue-400 mr-2" />
+                            <span className="text-blue-300 text-sm font-medium">{job.period}</span>
+                          </div>
+                          
+                          <h3 className="text-xl font-semibold text-white mb-2">{job.title}</h3>
+                          <h4 className="text-lg text-blue-300 mb-3">{job.company}</h4>
+                          
+                          <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                            {job.description}
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-2">
+                            {job.technologies.map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full border border-blue-400/20"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Projects & Experience Section */}
+          <section className="py-20">
+            <div className="container mx-auto px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <p className="text-blue-300 text-sm font-medium mb-4 tracking-wider uppercase">
+                    Portfolio & Experience
+                  </p>
+                  <h2 className="text-4xl lg:text-5xl font-light text-white mb-6 leading-tight">
+                    Connecting ideas with code.
+                  </h2>
+                  <p className="text-xl text-white/90 mb-6 font-light">
+                    Transforming concepts into scalable digital solutions.
+                  </p>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    With 5+ years of experience building full-stack applications, I specialize in creating 
+                    seamless user experiences backed by robust, scalable architectures. From startups to enterprise, 
+                    I help teams ship quality software that users love.
+                  </p>
+                </motion.div>
+
+                {/* Code Constellation Illustration */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="relative"
+                >
+                  <svg viewBox="0 0 400 300" className="w-full h-auto">
+                    {/* Ground/Hill */}
+                    <path
+                      d="M0 250 Q100 230 200 240 T400 250 L400 300 L0 300 Z"
+                      fill="rgba(30, 41, 59, 0.8)"
+                    />
+                    
+                    {/* Developer pointing at code constellation */}
+                    <g fill="rgba(59, 130, 246, 0.8)">
+                      <ellipse cx="200" cy="240" rx="12" ry="20" />
+                      <circle cx="200" cy="215" r="8" />
+                      {/* Pointing arm */}
+                      <path d="M205 225 L230 200 L235 195" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                      <path d="M195 255 L190 270" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                      <path d="M205 255 L210 270" stroke="rgba(59, 130, 246, 0.8)" strokeWidth="3" fill="none" />
+                    </g>
+
+                    {/* Tech constellation - connecting frontend to backend */}
+                    <g>
+                      {/* Central API star */}
+                      <circle cx="240" cy="120" r="4" fill="rgba(255, 255, 255, 0.9)" />
+                      <circle cx="240" cy="120" r="8" fill="rgba(255, 255, 255, 0.3)" />
+                      
+                      {/* Connected tech nodes */}
+                      <circle cx="200" cy="80" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                      <circle cx="280" cy="100" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                      <circle cx="320" cy="140" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                      <circle cx="180" cy="160" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                      <circle cx="260" cy="180" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                      
+                      {/* Connecting lines (data flow) */}
+                      <line x1="200" y1="80" x2="240" y2="120" stroke="rgba(147, 197, 253, 0.6)" strokeWidth="1" />
+                      <line x1="240" y1="120" x2="280" y2="100" stroke="rgba(147, 197, 253, 0.6)" strokeWidth="1" />
+                      <line x1="280" y1="100" x2="320" y2="140" stroke="rgba(147, 197, 253, 0.6)" strokeWidth="1" />
+                      <line x1="240" y1="120" x2="180" y2="160" stroke="rgba(147, 197, 253, 0.6)" strokeWidth="1" />
+                      <line x1="240" y1="120" x2="260" y2="180" stroke="rgba(147, 197, 253, 0.6)" strokeWidth="1" />
+                    </g>
+
+                    {/* Tech stack trees */}
+                    <g fill="rgba(15, 23, 42, 0.4)">
+                      <rect x="60" y="220" width="3" height="30" />
+                      <ellipse cx="61" cy="215" rx="8" ry="12" />
+                      <rect x="340" y="225" width="3" height="25" />
+                      <ellipse cx="341" cy="220" rx="6" ry="10" />
+                    </g>
+
+                    {/* Floating tech symbols */}
+                    <g fill="rgba(147, 197, 253, 0.4)" fontSize="10">
+                      <text x="190" y="85">React</text>
+                      <text x="275" y="105">Node</text>
+                      <text x="310" y="145">AWS</text>
+                      <text x="170" y="165">DB</text>
+                      <text x="250" y="185">API</text>
+                    </g>
+                  </svg>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* About Section */}
+          <AboutSection />
+
+          {/* Technical Skills Section */}
+          <TechnicalSkillsSection />
+
+          {/* Contact Section */}
+          <ContactSection />
+        </div>
       </div>
     </>
   );

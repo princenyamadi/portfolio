@@ -140,7 +140,7 @@ const urlsToCache = [
   '/',
   '/static/css/main.css',
   '/static/js/main.js',
-  '/resume.pdf'
+  '/PRINCE_NYAMADI-CV.pdf'
 ];
 ```
 

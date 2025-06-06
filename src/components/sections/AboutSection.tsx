@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => {
           >
             About{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Alex Chen
+              Prince Nyamadi
             </span>
           </motion.h2>
           <motion.p

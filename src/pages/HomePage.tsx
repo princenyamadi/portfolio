@@ -1,12 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Code, Database, Globe, Zap, Download, Briefcase, Calendar, ExternalLink, Github, ArrowRight, Star } from 'lucide-react';
+import { Database, Globe, Zap, Download, Briefcase, Calendar, ExternalLink, Github, ArrowRight, Star } from 'lucide-react';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { TechnicalSkillsSection } from '@/components/sections/TechnicalSkillsSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { AchievementsSection } from '@/components/sections/AchievementsSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import BlogSection from '@/components/sections/BlogSection';
+import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection';
+import { PerformanceDashboard } from '@/components/sections/PerformanceDashboard';
 
 const HomePage: React.FC = () => {
   const featuredProjects = [
@@ -15,7 +19,7 @@ const HomePage: React.FC = () => {
       description: "A comprehensive sustainability platform helping companies track and reduce their carbon footprint with real-time analytics and AI-powered insights.",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
       technologies: ["React", "Node.js", "PostgreSQL", "AWS", "D3.js"],
-      github: "https://github.com/alexchen/ecotracker",
+      github: "https://github.com/princenyamadi/ecotracker",
       live: "https://ecotracker-demo.com",
       featured: true
     },
@@ -24,7 +28,7 @@ const HomePage: React.FC = () => {
       description: "A collaborative development workspace that streamlines team workflows with integrated code review, task management, and deployment pipelines.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
       technologies: ["Vue.js", "Python", "Redis", "Docker", "WebSocket"],
-      github: "https://github.com/alexchen/devflow",
+      github: "https://github.com/princenyamadi/devflow",
       live: "https://devflow-app.com",
       featured: true
     },
@@ -33,7 +37,7 @@ const HomePage: React.FC = () => {
       description: "Personal finance management app with AI-powered budget recommendations and investment insights for smarter financial decisions.",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=300&fit=crop",
       technologies: ["Next.js", "TensorFlow", "MongoDB", "Stripe", "Chart.js"],
-      github: "https://github.com/alexchen/financeai",
+      github: "https://github.com/princenyamadi/financeai",
       live: "https://financeai-demo.com",
       featured: true
     }
@@ -73,7 +77,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Alex Chen - Fullstack Developer | Building Digital Experiences</title>
+        <title>Prince Nyamadi - Fullstack Developer | Building Digital Experiences</title>
         <meta name="description" content="Explore the digital possibilities. I craft exceptional web applications with modern technologies, seamless user experiences, and scalable architectures." />
       </Helmet>
 
@@ -159,7 +163,7 @@ const HomePage: React.FC = () => {
                     </motion.button>
                     <motion.a
                       href="/resume.pdf"
-                      download="Alex_Chen_Resume.pdf"
+                      download="Prince_Nyamadi_Resume.pdf"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center justify-center border border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 backdrop-blur-sm"
@@ -585,6 +589,15 @@ const HomePage: React.FC = () => {
           {/* Technical Skills Section */}
           <TechnicalSkillsSection />
 
+          {/* Enhanced Projects Section */}
+          <ProjectsSection />
+
+          {/* Blog Section */}
+          <BlogSection />
+
+          {/* Interactive Code Showcase */}
+          <CodeShowcaseSection />
+
           {/* Testimonials Section */}
           <TestimonialsSection />
 
@@ -594,6 +607,9 @@ const HomePage: React.FC = () => {
           {/* Contact Section */}
           <ContactSection />
         </div>
+        
+        {/* Performance Dashboard */}
+        <PerformanceDashboard />
       </div>
     </>
   );

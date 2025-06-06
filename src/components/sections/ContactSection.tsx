@@ -7,8 +7,8 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'alex@alexchen.dev',
-    href: 'mailto:alex@alexchen.dev',
+    value: 'prince@princenyamadi.dev',
+    href: 'mailto:prince@princenyamadi.dev',
     description: 'Send me an email anytime'
   },
   {
@@ -29,7 +29,7 @@ const contactMethods = [
     icon: Calendar,
     title: 'Schedule',
     value: 'Book a Meeting',
-    href: 'https://calendly.com/alexchen',
+    href: 'https://calendly.com/princenyamadi',
     description: '30-min consultation call'
   }
 ];

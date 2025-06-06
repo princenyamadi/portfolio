@@ -10,11 +10,11 @@ import {
 } from "lucide-react";
 
 export const personalInfo = {
-  name: "Alex Chen",
+  name: "Prince Nyamadi",
   title: "Full Stack Developer & Digital Architect",
   location: "San Francisco, CA",
   experience: "6+ years",
-  intro: `Hey there! I'm Alex, a passionate full-stack developer who believes that great code 
+  intro: `Hey there! I'm Prince, a passionate full-stack developer who believes that great code 
           is like poetry—elegant, purposeful, and impactful. My journey in tech started with 
           curiosity and has evolved into a mission to create digital experiences that make a 
           real difference in people's lives.`,

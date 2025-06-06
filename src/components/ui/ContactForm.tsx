@@ -4,7 +4,7 @@ import { Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import { useContactForm } from '@/hooks/useContactForm';
 
 export const ContactForm: React.FC = () => {
-  const { register, onSubmit, formState: { errors, isValid }, isSubmitting, submitStatus, resetForm } = useContactForm();
+  const { register, onSubmit, formState: { errors }, isSubmitting, submitStatus, resetForm } = useContactForm();
 
   const getSubmitButtonContent = () => {
     if (isSubmitting) {
@@ -191,8 +191,8 @@ export const ContactForm: React.FC = () => {
       {/* Form Footer */}
       <p className="text-white/60 text-sm text-center">
         I typically respond within 24 hours. For urgent matters, feel free to email me directly at{' '}
-        <a href="mailto:alex@alexchen.dev" className="text-blue-400 hover:text-blue-300 underline">
-          alex@alexchen.dev
+        <a href="mailto:prince@princenyamadi.dev" className="text-blue-400 hover:text-blue-300 underline">
+          prince@princenyamadi.dev
         </a>
       </p>
     </motion.form>

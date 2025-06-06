@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Target, TrendingUp, Clock, Filter } from 'lucide-react';
-import { skillCategories, certifications, learningGoals, type Skill, type SkillCategory } from '@/data/skillsData';
+import { skillCategories, certifications, learningGoals } from '@/data/skillsData';
 
 export const TechnicalSkillsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');

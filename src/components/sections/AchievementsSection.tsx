@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TrendingUp, TrendingDown, Minus, Filter, Calendar } from 'lucide-react';
-import { achievements, milestones, keyMetrics, type Achievement } from '@/data/achievementsData';
+import { achievements, milestones, keyMetrics } from '@/data/achievementsData';
 
 // Counter hook for animated numbers
 const useCounter = (end: number, duration: number = 2000, isInView: boolean = false) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink, Linkedin, Users, Award, TrendingUp } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink, Linkedin } from 'lucide-react';
 import { testimonials, testimonialStats, recognitions, type Testimonial } from '@/data/testimonialsData';
 
 export const TestimonialsSection: React.FC = () => {

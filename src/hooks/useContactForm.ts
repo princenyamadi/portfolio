@@ -49,7 +49,7 @@ export const useContactForm = () => {
         from_email: data.email,
         subject: data.subject,
         message: data.message,
-        to_name: "Alex Chen",
+        to_name: "Prince Nyamadi",
       };
 
       // Note: Replace these with your actual EmailJS credentials

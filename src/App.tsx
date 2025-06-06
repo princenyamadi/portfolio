@@ -1,8 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { AccessibilityProvider } from './contexts/AccessibilityContext';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 import { Layout } from '@/components/layout/Layout';
+import { SkipLinks } from './components/ui/SkipLinks';
+import { AccessibilityButton } from './components/ui/AccessibilityPanel';
 
 // Pages
 import HomePage from '@/pages/HomePage';
@@ -30,26 +34,32 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <ErrorBoundary>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <Router>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/projects/:id" element={<ProjectDetailPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/blog/:slug" element={<BlogPostPage />} />
-                <Route path="/templates" element={<TemplatesPage />} />
-                <Route path="/templates/:id" element={<TemplateDetailPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Layout>
-          </Router>
-        </QueryClientProvider>
-      </HelmetProvider>
+      <AccessibilityProvider>
+        <ThemeProvider defaultTheme="dark">
+          <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+              <Router>
+                <SkipLinks />
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/projects" element={<ProjectsPage />} />
+                    <Route path="/projects/:id" element={<ProjectDetailPage />} />
+                    <Route path="/blog" element={<BlogPage />} />
+                    <Route path="/blog/:slug" element={<BlogPostPage />} />
+                    <Route path="/templates" element={<TemplatesPage />} />
+                    <Route path="/templates/:id" element={<TemplateDetailPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                  </Routes>
+                </Layout>
+                <AccessibilityButton />
+              </Router>
+            </QueryClientProvider>
+          </HelmetProvider>
+        </ThemeProvider>
+      </AccessibilityProvider>
     </ErrorBoundary>
   );
 }

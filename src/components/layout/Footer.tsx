@@ -6,14 +6,19 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-transparent border-t border-white/20">
+    <footer 
+      className="bg-transparent border-t border-white/20"
+      role="contentinfo"
+      aria-label="Site footer"
+      id="footer"
+    >
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 text-xl font-bold text-white mb-4">
               <Code className="w-6 h-6" />
-              <span>Alex Chen</span>
+              <span>Prince Nyamadi</span>
             </Link>
             <p className="text-white/70 max-w-md">
               Fullstack Developer crafting exceptional digital experiences. 
@@ -25,21 +30,23 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-white mb-4">Portfolio</h3>
-            <ul className="space-y-2">
+            <nav aria-label="Footer navigation">
+              <ul className="space-y-2">
               <li><Link to="/projects" className="text-white/70 hover:text-white transition-colors">Projects</Link></li>
               <li><Link to="/about" className="text-white/70 hover:text-white transition-colors">About</Link></li>
               <li><Link to="/skills" className="text-white/70 hover:text-white transition-colors">Skills</Link></li>
               <li><Link to="/blog" className="text-white/70 hover:text-white transition-colors">Blog</Link></li>
               <li><Link to="/contact" className="text-white/70 hover:text-white transition-colors">Contact</Link></li>
-            </ul>
+              </ul>
+            </nav>
           </div>
 
           {/* Connect */}
           <div>
             <h3 className="font-semibold text-white mb-4">Connect</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4" aria-label="Social media links">
               <a
-                href="https://github.com/alexchen"
+                href="https://github.com/princenyamadi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
@@ -48,7 +55,7 @@ export const Footer: React.FC = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/alexchen"
+                href="https://linkedin.com/in/princenyamadi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
@@ -57,7 +64,7 @@ export const Footer: React.FC = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com/alexchen"
+                href="https://twitter.com/princenyamadi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-white transition-colors"
@@ -66,7 +73,7 @@ export const Footer: React.FC = () => {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="mailto:alex@alexchen.dev"
+                href="mailto:prince@princenyamadi.dev"
                 className="text-white/70 hover:text-white transition-colors"
                 aria-label="Email"
               >
@@ -79,7 +86,7 @@ export const Footer: React.FC = () => {
         <div className="mt-8 pt-8 border-t border-white/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/70 text-sm">
-              © {currentYear} Alex Chen. All rights reserved.
+              © {currentYear} Prince Nyamadi. All rights reserved.
             </p>
             <p className="text-white/70 text-sm mt-2 md:mt-0">
               Built with React, TypeScript & lots of ☕

@@ -162,7 +162,7 @@ const HomePage: React.FC = () => {
                       View My Work
                     </motion.button>
                     <motion.a
-                      href="/resume.pdf"
+                      href="/PRINCE_NYAMADI-CV.pdf"
                       download="Prince_Nyamadi_Resume.pdf"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

@@ -105,7 +105,7 @@ export const Header: React.FC = () => {
             <ThemeToggle variant="icon" />
             
             <a
-              href="/resume.pdf"
+              href="/PRINCE_NYAMADI-CV.pdf"
               download="Prince_Nyamadi_Resume.pdf"
               className="inline-flex items-center text-white/90 hover:text-white px-4 py-2 text-sm font-medium transition-all duration-300"
             >
@@ -176,7 +176,7 @@ export const Header: React.FC = () => {
               ))}
               <div className="mt-4 mx-3 flex flex-col space-y-2">
                 <a
-                  href="/resume.pdf"
+                  href="/PRINCE_NYAMADI-CV.pdf"
                   download="Prince_Nyamadi_Resume.pdf"
                   className="inline-flex items-center justify-center text-white/90 hover:text-white border border-white/30 hover:border-white/50 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300"
                 >

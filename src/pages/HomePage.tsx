@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
     <>
       <Helmet>
         <title>Prince Nyamadi - Fullstack Developer | Building Digital Experiences</title>
-        <meta name="description" content="Explore the digital possibilities. I craft exceptional web applications with modern technologies, seamless user experiences, and scalable architectures." />
+        <meta name="description" content="Explore the digital possibilities. I craft exceptional mobile and web applications with modern technologies, seamless user experiences, and scalable architectures." />
       </Helmet>
 
       <div className="relative">
@@ -140,24 +140,26 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 min-h-screen flex flex-col">
           {/* Hero Section with Telescope */}
           <section className="flex-1 flex items-center">
-            <div className="container mx-auto px-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="mobile-container">
+              <div className="mobile-grid-2 lg:grid-cols-2 responsive-gap items-center">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
+                  {/* Hero Section */}
+                 
+                  <h1 className="responsive-heading-xl font-light text-white mb-6 leading-tight mt-40 md:mt-20">
                     Explore the digital universe.
                   </h1>
-                  <p className="text-xl lg:text-2xl text-white/90 mb-8 font-light">
+                  <p className="responsive-text-lg text-white/90 mb-8 font-light">
                     Let's build something extraordinary together
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors duration-300"
+                      className="mobile-btn-lg mobile-interactive bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium"
                     >
                       View My Work
                     </motion.button>
@@ -166,7 +168,7 @@ const HomePage: React.FC = () => {
                       download="Prince_Nyamadi_Resume.pdf"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center justify-center border border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 backdrop-blur-sm"
+                      className="mobile-btn-lg mobile-interactive inline-flex items-center justify-center border border-white/30 hover:border-white/50 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium transition-all duration-300 backdrop-blur-sm"
                     >
                       <Download className="w-4 h-4 mr-2" />
                       Download Resume
@@ -583,33 +585,33 @@ const HomePage: React.FC = () => {
             </div>
           </section>
 
-          {/* About Section */}
-          <AboutSection />
+                     {/* About Section */}
+           <AboutSection />
 
-          {/* Technical Skills Section */}
-          <TechnicalSkillsSection />
+           {/* Technical Skills Section */}
+           <TechnicalSkillsSection />
 
-          {/* Enhanced Projects Section */}
-          <ProjectsSection />
+           {/* Enhanced Projects Section */}
+           <ProjectsSection />
 
-          {/* Blog Section */}
-          <BlogSection />
+           {/* Blog Section */}
+           <BlogSection />
 
-          {/* Interactive Code Showcase */}
-          <CodeShowcaseSection />
+           {/* Interactive Code Showcase */}
+           <CodeShowcaseSection />
 
-          {/* Testimonials Section */}
-          <TestimonialsSection />
+           {/* Testimonials Section */}
+           <TestimonialsSection />
 
-          {/* Achievements Section */}
-          <AchievementsSection />
+           {/* Achievements Section */}
+           <AchievementsSection />
 
-          {/* Contact Section */}
-          <ContactSection />
-        </div>
-        
-        {/* Performance Dashboard */}
-        <PerformanceDashboard />
+           {/* Contact Section */}
+           <ContactSection />
+         </div>
+         
+         {/* Performance Dashboard */}
+         <PerformanceDashboard />
       </div>
     </>
   );

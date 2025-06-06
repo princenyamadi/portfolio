@@ -45,15 +45,15 @@ export const TechnicalSkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="relative responsive-padding-section">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-32 left-16 w-28 h-28 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute bottom-32 right-16 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
-        <div className="absolute top-80 right-32 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-500" />
+        <div className="absolute top-16 sm:top-32 left-4 sm:left-16 w-16 sm:w-28 h-16 sm:h-28 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute bottom-16 sm:bottom-32 right-4 sm:right-16 w-20 sm:w-36 h-20 sm:h-36 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
+        <div className="absolute top-40 sm:top-80 right-8 sm:right-32 w-12 sm:w-24 h-12 sm:h-24 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-500" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative mobile-container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +67,7 @@ export const TechnicalSkillsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="responsive-heading-lg font-bold text-white mb-6"
           >
             Technical{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -79,7 +79,7 @@ export const TechnicalSkillsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            className="responsive-text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
           >
             A comprehensive overview of my technical skills, tools, and ongoing learning journey
           </motion.p>
@@ -91,7 +91,7 @@ export const TechnicalSkillsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+          className="mobile-grid-4 gap-4 sm:gap-6 responsive-margin-section"
         >
           <div className="text-center p-6 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl border border-blue-400/20">
             <div className="text-3xl font-bold text-blue-400 mb-2">{skillCategories.length}</div>

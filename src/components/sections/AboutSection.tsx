@@ -7,15 +7,15 @@ export const AboutSection: React.FC = () => {
   const [showFunFacts, setShowFunFacts] = useState(false);
 
   return (
-    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative responsive-padding-section">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-40 left-20 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-700" />
-        <div className="absolute top-60 right-40 w-20 h-20 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
+        <div className="absolute top-20 sm:top-40 left-4 sm:left-20 w-16 sm:w-24 h-16 sm:h-24 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute bottom-20 sm:bottom-40 right-4 sm:right-20 w-20 sm:w-32 h-20 sm:h-32 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-700" />
+        <div className="absolute top-40 sm:top-60 right-8 sm:right-40 w-12 sm:w-20 h-12 sm:h-20 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative mobile-container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="responsive-heading-lg font-bold text-white mb-6"
           >
             About{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -41,14 +41,14 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            className="responsive-text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
           >
             {personalInfo.title} based in {personalInfo.location}
           </motion.p>
         </motion.div>
 
         {/* Personal Story */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div className="mobile-grid-2 lg:grid-cols-2 responsive-gap responsive-margin-section">
           {/* Main Story */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

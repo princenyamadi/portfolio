@@ -10,7 +10,7 @@ export const ContactForm: React.FC = () => {
     if (isSubmitting) {
       return (
         <>
-          <Loader className="w-4 h-4 mr-2 animate-spin" />
+          <Loader className="w-4 h-4 animate-spin" />
           Sending...
         </>
       );
@@ -18,14 +18,14 @@ export const ContactForm: React.FC = () => {
     if (submitStatus === 'success') {
       return (
         <>
-          <CheckCircle className="w-4 h-4 mr-2" />
+          <CheckCircle className="w-4 h-4" />
           Sent!
         </>
       );
     }
     return (
       <>
-        <Send className="w-4 h-4 mr-2" />
+        <Send className="w-4 h-4" />
         Send Message
       </>
     );
@@ -183,7 +183,7 @@ export const ContactForm: React.FC = () => {
         disabled={isSubmitting || submitStatus === 'success'}
         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-        className={`w-full px-8 py-4 rounded-lg font-medium text-white border transition-all duration-300 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed ${getSubmitButtonStyle()}`}
+        className={`w-full px-8 py-4 rounded-lg font-medium text-white border transition-all duration-300 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${getSubmitButtonStyle()}`}
       >
         {getSubmitButtonContent()}
       </motion.button>

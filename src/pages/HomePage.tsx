@@ -5,6 +5,8 @@ import { Code, Database, Globe, Zap, Download, Briefcase, Calendar, ExternalLink
 import { ContactSection } from '@/components/sections/ContactSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { TechnicalSkillsSection } from '@/components/sections/TechnicalSkillsSection';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+import { AchievementsSection } from '@/components/sections/AchievementsSection';
 
 const HomePage: React.FC = () => {
   const featuredProjects = [
@@ -582,6 +584,12 @@ const HomePage: React.FC = () => {
 
           {/* Technical Skills Section */}
           <TechnicalSkillsSection />
+
+          {/* Testimonials Section */}
+          <TestimonialsSection />
+
+          {/* Achievements Section */}
+          <AchievementsSection />
 
           {/* Contact Section */}
           <ContactSection />

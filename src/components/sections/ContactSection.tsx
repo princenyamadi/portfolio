@@ -7,29 +7,29 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'prince@princenyamadi.dev',
-    href: 'mailto:prince@princenyamadi.dev',
+    value: 'princenyamadi.pn@gmail.com',
+    href: 'mailto:princenyamadi.pn@gmail.com',
     description: 'Send me an email anytime'
   },
   {
     icon: Phone,
     title: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-    description: 'Available 9 AM - 6 PM PST'
+    value: '+233 (24) 087-3636',
+    href: 'tel:+233240873636',
+    description: 'Available 9 AM - 6 PM GMT+0'
   },
   {
     icon: MapPin,
     title: 'Location',
-    value: 'San Francisco, CA',
-    href: 'https://maps.google.com/?q=San+Francisco,CA',
+    value: 'Accra, Ghana',
+    href: 'https://maps.google.com/?q=Accra, Ghana',
     description: 'Available for local meetings'
   },
   {
     icon: Calendar,
     title: 'Schedule',
     value: 'Book a Meeting',
-    href: 'https://calendly.com/princenyamadi',
+    href: 'https://calendly.com/princenyamadi-pn/30min',
     description: '30-min consultation call'
   }
 ];
@@ -49,14 +49,14 @@ const quickInfo = [
 
 export const ContactSection: React.FC = () => {
   return (
-    <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative responsive-padding-section">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-20 sm:w-32 h-20 sm:h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-24 sm:w-40 h-24 sm:h-40 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative mobile-container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,7 +70,7 @@ export const ContactSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="responsive-heading-lg font-bold text-white mb-6"
           >
             Let's Build Something{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -82,14 +82,14 @@ export const ContactSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            className="responsive-text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
           >
             Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences. 
             Whether you need a full-stack application, consultation, or just want to chat about tech, let's connect!
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mobile-grid-1 lg:grid-cols-3 responsive-gap">
           {/* Contact Methods */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

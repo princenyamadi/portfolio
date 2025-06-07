@@ -16,8 +16,8 @@ const ProjectsSection: React.FC = () => {
 
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="responsive-padding-section bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
+      <div className="mobile-container">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,13 +25,13 @@ const ProjectsSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Featured Projects</h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <h2 className="responsive-heading-lg font-bold text-white mb-4">Featured Projects</h2>
+          <p className="responsive-text-lg text-slate-300 max-w-3xl mx-auto">
             Explore my portfolio of innovative solutions, from enterprise platforms to AI-powered applications
           </p>
           
           {/* Project Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto">
+          <div className="mobile-grid-4 gap-4 sm:gap-6 mt-8 sm:mt-12 max-w-4xl mx-auto">
             {[
               { label: 'Projects Completed', value: projectStats.completedProjects, icon: FiStar },
               { label: 'Technologies Used', value: `${projectStats.techStackVariety}+`, icon: FiCode },
@@ -77,7 +77,7 @@ const ProjectsSection: React.FC = () => {
         </motion.div>
 
         {/* Featured Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+        <div className="mobile-grid-3 xl:grid-cols-3 responsive-gap responsive-margin-section">
           <AnimatePresence>
             {filteredProjects.slice(0, 6).map((project, index) => (
               <motion.div

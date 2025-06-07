@@ -18,7 +18,10 @@ import BlogPostPage from '@/pages/BlogPostPage';
 import TemplatesPage from '@/pages/TemplatesPage';
 import TemplateDetailPage from '@/pages/TemplateDetailPage';
 import ContactPage from '@/pages/ContactPage';
+import AdminPage from '@/pages/AdminPage';
+import LoginPage from '@/pages/LoginPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -51,6 +54,12 @@ function App() {
                     <Route path="/templates" element={<TemplatesPage />} />
                     <Route path="/templates/:id" element={<TemplateDetailPage />} />
                     <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/admin" element={
+                      <ProtectedRoute>
+                        <AdminPage />
+                      </ProtectedRoute>
+                    } />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </Layout>

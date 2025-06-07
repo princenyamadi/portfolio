@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Code, Download, Search } from 'lucide-react';
+import { Menu, Code, Download, Search } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { GlobalSearch } from '../ui/GlobalSearch';
+import { MobileMenu } from '../ui/MobileMenu';
 
 const NAVIGATION_ITEMS = [
   { name: 'About', href: '#about' },
@@ -41,12 +42,12 @@ export const Header: React.FC = () => {
 
   return (
     <header 
-      className="absolute top-0 left-0 right-0 z-50"
+      className="absolute top-0 left-0 right-0 z-50 mobile-safe-area"
       role="banner"
       aria-label="Site header"
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="mobile-container">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Code Icon */}
           <Link 
             to="/" 
@@ -123,76 +124,24 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-white/90 hover:text-white transition-all duration-300"
+            className="md:hidden mobile-touch-target mobile-interactive p-2 text-white/90 hover:text-white"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMenuOpen}
+            aria-expanded={isMenuOpen ? "true" : "false"}
             aria-controls="mobile-navigation"
             aria-haspopup="true"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <Menu className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div 
-            className="md:hidden py-4 border-t border-white/20"
-            id="mobile-navigation"
-            role="region"
-            aria-label="Mobile navigation menu"
-          >
-            <nav 
-              className="flex flex-col space-y-2"
-              role="navigation"
-              aria-label="Mobile primary navigation"
-            >
-              {NAVIGATION_ITEMS.map((item) => (
-                item.href.startsWith('#') ? (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavigation(item.href)}
-                    className={`px-3 py-2 text-base font-medium rounded-md transition-colors text-white/90 hover:text-white hover:bg-white/10 text-left ${
-                      isCurrentPage(item.href)
-                        ? 'text-white bg-white/10'
-                        : ''
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`px-3 py-2 text-base font-medium rounded-md transition-colors text-white/90 hover:text-white hover:bg-white/10 ${
-                      isCurrentPage(item.href)
-                        ? 'text-white bg-white/10'
-                        : ''
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              ))}
-              <div className="mt-4 mx-3 flex flex-col space-y-2">
-                <a
-                  href="/PRINCE_NYAMADI-CV.pdf"
-                  download="Prince_Nyamadi_Resume.pdf"
-                  className="inline-flex items-center justify-center text-white/90 hover:text-white border border-white/30 hover:border-white/50 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
-                </a>
-                <button 
-                  onClick={() => handleNavigation('#contact')}
-                  className="text-white/90 hover:text-white border border-white/30 hover:border-white/50 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300"
-                >
-                  Contact
-                </button>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Mobile Menu */}
+        <MobileMenu
+          isOpen={isMenuOpen}
+          onClose={() => setIsMenuOpen(false)}
+          navigationItems={NAVIGATION_ITEMS}
+          onNavigation={handleNavigation}
+          onSearchOpen={() => setIsSearchOpen(true)}
+        />
       </div>
       
       {/* Global Search Modal */}

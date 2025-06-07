@@ -10,7 +10,9 @@ import {
   Shield,
   Database,
   LogOut,
-  Image
+  Image,
+  Search,
+  Users
 } from 'lucide-react';
 import { ProjectsAdmin } from '../components/admin/ProjectsAdmin';
 import { BlogAdmin } from '../components/admin/BlogAdmin';
@@ -19,10 +21,12 @@ import { TestimonialsAdmin } from '../components/admin/TestimonialsAdmin';
 import { MediaLibrary } from '../components/admin/MediaLibrary';
 import { ContentAnalytics } from '../components/admin/ContentAnalytics';
 import { ImportExport } from '../components/admin/ImportExport';
+import SEOManager from '../components/admin/SEOManager';
+import ContactManager from '../components/admin/ContactManager';
 import { useAuth } from '../hooks/useAuth';
 import { getUserInitials, getUserDisplayName } from '../services/authService';
 
-type AdminSection = 'projects' | 'blog' | 'skills' | 'testimonials' | 'media' | 'analytics' | 'import-export' | 'overview';
+type AdminSection = 'projects' | 'blog' | 'skills' | 'testimonials' | 'media' | 'analytics' | 'import-export' | 'seo' | 'contacts' | 'overview';
 
 const AdminPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AdminSection>('overview');
@@ -83,6 +87,18 @@ const AdminPage: React.FC = () => {
       icon: Database,
       description: 'Backup and migrate data'
     },
+    {
+      id: 'seo' as AdminSection,
+      label: 'SEO Manager',
+      icon: Search,
+      description: 'Search engine optimization'
+    },
+    {
+      id: 'contacts' as AdminSection,
+      label: 'Contact & Leads',
+      icon: Users,
+      description: 'Manage leads and contact forms'
+    },
   ];
 
   const renderContent = () => {
@@ -101,6 +117,10 @@ const AdminPage: React.FC = () => {
         return <ContentAnalytics />;
       case 'import-export':
         return <ImportExport />;
+      case 'seo':
+        return <SEOManager />;
+      case 'contacts':
+        return <ContactManager />;
       case 'overview':
       default:
         return <AdminOverview />;

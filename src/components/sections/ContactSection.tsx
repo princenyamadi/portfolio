@@ -7,29 +7,29 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'prince@princenyamadi.dev',
-    href: 'mailto:prince@princenyamadi.dev',
+    value: 'princenyamadi.pn@gmail.com',
+    href: 'mailto:princenyamadi.pn@gmail.com',
     description: 'Send me an email anytime'
   },
   {
     icon: Phone,
     title: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-    description: 'Available 9 AM - 6 PM PST'
+    value: '+233 (24) 087-3636',
+    href: 'tel:+233240873636',
+    description: 'Available 9 AM - 6 PM GMT+0'
   },
   {
     icon: MapPin,
     title: 'Location',
-    value: 'San Francisco, CA',
-    href: 'https://maps.google.com/?q=San+Francisco,CA',
+    value: 'Accra, Ghana',
+    href: 'https://maps.google.com/?q=Accra, Ghana',
     description: 'Available for local meetings'
   },
   {
     icon: Calendar,
     title: 'Schedule',
     value: 'Book a Meeting',
-    href: 'https://calendly.com/princenyamadi',
+    href: 'https://calendly.com/princenyamadi-pn/30min',
     description: '30-min consultation call'
   }
 ];

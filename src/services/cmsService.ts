@@ -82,11 +82,15 @@ export interface CMSTestimonial {
   content: string;
   rating: number; // 1-5
   project: string;
-  relationship: "client" | "colleague" | "manager" | "other";
+  relationship: "client" | "colleague" | "manager" | "partner";
   avatarUrl?: string;
+  email?: string;
   linkedinUrl?: string;
   companyUrl?: string;
+  dateReceived: Timestamp;
   featured: boolean;
+  isPublic: boolean;
+  status: "pending" | "approved" | "rejected";
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }

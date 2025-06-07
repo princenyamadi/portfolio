@@ -9,16 +9,20 @@ import {
   BarChart3,
   Shield,
   Database,
-  LogOut
+  LogOut,
+  Image
 } from 'lucide-react';
 import { ProjectsAdmin } from '../components/admin/ProjectsAdmin';
 import { BlogAdmin } from '../components/admin/BlogAdmin';
 import { SkillsAdmin } from '../components/admin/SkillsAdmin';
 import { TestimonialsAdmin } from '../components/admin/TestimonialsAdmin';
+import { MediaLibrary } from '../components/admin/MediaLibrary';
+import { ContentAnalytics } from '../components/admin/ContentAnalytics';
+import { ImportExport } from '../components/admin/ImportExport';
 import { useAuth } from '../hooks/useAuth';
 import { getUserInitials, getUserDisplayName } from '../services/authService';
 
-type AdminSection = 'projects' | 'blog' | 'skills' | 'testimonials' | 'overview';
+type AdminSection = 'projects' | 'blog' | 'skills' | 'testimonials' | 'media' | 'analytics' | 'import-export' | 'overview';
 
 const AdminPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<AdminSection>('overview');
@@ -61,6 +65,24 @@ const AdminPage: React.FC = () => {
       icon: MessageSquare,
       description: 'Manage client testimonials'
     },
+    {
+      id: 'media' as AdminSection,
+      label: 'Media Library',
+      icon: Image,
+      description: 'Manage images and files'
+    },
+    {
+      id: 'analytics' as AdminSection,
+      label: 'Analytics',
+      icon: BarChart3,
+      description: 'Content performance insights'
+    },
+    {
+      id: 'import-export' as AdminSection,
+      label: 'Import/Export',
+      icon: Database,
+      description: 'Backup and migrate data'
+    },
   ];
 
   const renderContent = () => {
@@ -73,6 +95,12 @@ const AdminPage: React.FC = () => {
         return <SkillsAdmin />;
       case 'testimonials':
         return <TestimonialsAdmin />;
+      case 'media':
+        return <MediaLibrary />;
+      case 'analytics':
+        return <ContentAnalytics />;
+      case 'import-export':
+        return <ImportExport />;
       case 'overview':
       default:
         return <AdminOverview />;
